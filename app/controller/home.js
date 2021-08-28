@@ -177,7 +177,7 @@ class HomeController extends Controller {
       start=(currentPage-1)*pageSize
     }
     const sql=
-    `select * from article a join typetable t on a.articleTypeId=t.typeId where t.typeId=${typeId} order by a.articleDate desc limit ${pageSize} offset ${start}`
+    `select * from article a join typeTable t on a.articleTypeId=t.typeId where t.typeId=${typeId} order by a.articleDate desc limit ${pageSize} offset ${start}`
     const res=await app.mysql.query(sql);
     ctx.body={
       data:res
